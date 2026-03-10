@@ -1,0 +1,7 @@
+name: 'btw_blocks'
+type: module
+description: 'Blocks and such'
+package: Custom
+core_version_requirement: ^10 || ^11
+dependencies:
+  - drupal:block

@@ -1,0 +1,31 @@
+block.settings.btw_blocks_footer_copyright:
+  type: block_settings
+  label: 'Footer Copyright block'
+  mapping:
+    example:
+      type: string
+      label: Example
+
+block.settings.btw_blocks_footer_contact:
+  type: block_settings
+  label: 'Footer Contact block'
+  mapping:
+    example:
+      type: string
+      label: Example
+
+block.settings.btw_blocks_footer_logo_block:
+  type: block_settings
+  label: 'Footer Logo Block block'
+  mapping:
+    example:
+      type: string
+      label: Example
+
+block.settings.btw_blocks_cta_block_1:
+  type: block_settings
+  label: 'CTA Block 1 block'
+  mapping:
+    example:
+      type: string
+      label: Example
