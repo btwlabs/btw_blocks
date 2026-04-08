@@ -51,7 +51,7 @@ final class CtaBlock1Block extends BlockBase implements ContainerFactoryPluginIn
    */
   public function defaultConfiguration(): array {
     return [
-      'example' => $this->t('Hello world!'),
+      'cta_html' => $this->t('Hello world!'),
     ];
   }
 
@@ -59,9 +59,9 @@ final class CtaBlock1Block extends BlockBase implements ContainerFactoryPluginIn
    * {@inheritdoc}
    */
   public function blockForm($form, FormStateInterface $form_state): array {
-    $form['example'] = [
+    $form['cta_html'] = [
       '#type' => 'textarea',
-      '#title' => $this->t('Example'),
+      '#title' => $this->t('CTA Html'),
       '#default_value' => $this->configuration['example'],
     ];
     return $form;
@@ -71,7 +71,7 @@ final class CtaBlock1Block extends BlockBase implements ContainerFactoryPluginIn
    * {@inheritdoc}
    */
   public function blockSubmit($form, FormStateInterface $form_state): void {
-    $this->configuration['example'] = $form_state->getValue('example');
+    $this->configuration['cta_html'] = $form_state->getValue('cta_html');
   }
 
   /**
@@ -79,7 +79,7 @@ final class CtaBlock1Block extends BlockBase implements ContainerFactoryPluginIn
    */
   public function build(): array {
     $build['content'] = [
-      '#markup' => $this->t('It works!'),
+      '#markup' => $this->configuration['cta_html'],
     ];
     return $build;
   }
