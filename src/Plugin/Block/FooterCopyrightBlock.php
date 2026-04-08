@@ -51,7 +51,7 @@ final class FooterCopyrightBlock extends BlockBase implements ContainerFactoryPl
    */
   public function defaultConfiguration(): array {
     return [
-      'example' => $this->t('Hello world!'),
+      'copyright_html' => $this->t('Hello world!'),
     ];
   }
 
@@ -59,10 +59,10 @@ final class FooterCopyrightBlock extends BlockBase implements ContainerFactoryPl
    * {@inheritdoc}
    */
   public function blockForm($form, FormStateInterface $form_state): array {
-    $form['example'] = [
+    $form['copyright_html'] = [
       '#type' => 'textarea',
-      '#title' => $this->t('Example'),
-      '#default_value' => $this->configuration['example'],
+      '#title' => $this->t('Copyright HTML'),
+      '#default_value' => $this->configuration['copyright_html'],
     ];
     return $form;
   }
@@ -71,7 +71,7 @@ final class FooterCopyrightBlock extends BlockBase implements ContainerFactoryPl
    * {@inheritdoc}
    */
   public function blockSubmit($form, FormStateInterface $form_state): void {
-    $this->configuration['example'] = $form_state->getValue('example');
+    $this->configuration['copyright_html'] = $form_state->getValue('copyright_html');
   }
 
   /**
@@ -79,7 +79,7 @@ final class FooterCopyrightBlock extends BlockBase implements ContainerFactoryPl
    */
   public function build(): array {
     $build['content'] = [
-      '#markup' => $this->t('It works!'),
+      '#markup' => $this->configuration['copyright_html']
     ];
     return $build;
   }
