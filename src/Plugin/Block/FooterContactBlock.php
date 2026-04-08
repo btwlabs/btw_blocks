@@ -51,7 +51,7 @@ final class FooterContactBlock extends BlockBase implements ContainerFactoryPlug
    */
   public function defaultConfiguration(): array {
     return [
-      'example' => $this->t('Hello world!'),
+      'contact_html' => $this->t('Hello world!'),
     ];
   }
 
@@ -59,10 +59,10 @@ final class FooterContactBlock extends BlockBase implements ContainerFactoryPlug
    * {@inheritdoc}
    */
   public function blockForm($form, FormStateInterface $form_state): array {
-    $form['example'] = [
+    $form['contact_html'] = [
       '#type' => 'textarea',
-      '#title' => $this->t('Example'),
-      '#default_value' => $this->configuration['example'],
+      '#title' => $this->t('Contact HTML'),
+      '#default_value' => $this->configuration['contact_html'],
     ];
     return $form;
   }
@@ -71,7 +71,7 @@ final class FooterContactBlock extends BlockBase implements ContainerFactoryPlug
    * {@inheritdoc}
    */
   public function blockSubmit($form, FormStateInterface $form_state): void {
-    $this->configuration['example'] = $form_state->getValue('example');
+    $this->configuration['contact_html'] = $form_state->getValue('contact_html');
   }
 
   /**
@@ -79,7 +79,7 @@ final class FooterContactBlock extends BlockBase implements ContainerFactoryPlug
    */
   public function build(): array {
     $build['content'] = [
-      '#markup' => $this->t('It works!'),
+      '#markup' => $this->configuration['contact_html']
     ];
     return $build;
   }
