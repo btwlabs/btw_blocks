@@ -62,7 +62,7 @@ final class CtaBlock1Block extends BlockBase implements ContainerFactoryPluginIn
     $form['cta_html'] = [
       '#type' => 'textarea',
       '#title' => $this->t('CTA Html'),
-      '#default_value' => $this->configuration['example'],
+      '#default_value' => $this->configuration['cta_html'],
     ];
     return $form;
   }
